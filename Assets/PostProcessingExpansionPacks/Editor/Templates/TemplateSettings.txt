@@ -1,9 +1,0 @@
-using System;
-using UnityEngine.Rendering.PostProcessing;
-
-[Serializable]
-[PostProcess(typeof($CUSTOMNAMERenderer), PostProcessEvent.AfterStack, "Custom/$CUSTOMNAME")]
-public sealed class $CUSTOMNAMESettings : PostProcessEffectSettings
-{
-    
-}

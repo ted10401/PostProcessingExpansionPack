@@ -1,0 +1,23 @@
+using System;
+
+namespace UnityEngine.Rendering.PostProcessing
+{
+    [Serializable]
+    [PostProcess(typeof($CUSTOMNAMERenderer), PostProcessEvent.AfterStack, "Custom/$CUSTOMNAME")]
+    public sealed class $CUSTOMNAME : PostProcessEffectSettings
+    {
+        
+    }
+
+    internal sealed class $CUSTOMNAMERenderer : PostProcessEffectRenderer<$CUSTOMNAME>
+    {
+        public override void Render(PostProcessRenderContext context)
+        {
+            var sheet = context.propertySheets.Get(Shader.Find("Hidden/Custom/$CUSTOMNAME"));
+            
+            
+            
+            context.command.BlitFullscreenTriangle(context.source, context.destination, sheet, 0);
+        }
+    }
+}

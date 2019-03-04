@@ -11,30 +11,14 @@ public class CustomPostProcessingEndNameEditAction : EndNameEditAction
     {
         string scriptName = Path.GetFileNameWithoutExtension(pathName);
         CreateFile(pathName, scriptName, "shader", "TemplateShader.txt");
-        CreateFile(pathName, scriptName + "Renderer", "cs", "TemplateRenderer.txt");
-        CreateFile(pathName, scriptName + "Settings", "cs", "TemplateSettings.txt");
-
-        //Debug.LogErrorFormat("pathName = {0}, resourceFile = {1}", pathName, resourceFile);
-
-        //string scriptName = Path.GetFileNameWithoutExtension(pathName);
-        //string text = File.ReadAllText(resourceFile);
-
-        //text = text.Replace("$CUSTOMNAME", scriptName);
-
-        //StreamWriter sr = File.CreateText(pathName);
-        //sr.WriteLine(text);
-        //sr.Close();
-
-        //AssetDatabase.ImportAsset(pathName);
-        //ProjectWindowUtil.ShowCreatedAsset(AssetDatabase.LoadAssetAtPath<TextAsset>(pathName));
-        //AssetDatabase.Refresh();
+        CreateFile(pathName, scriptName, "cs", "TemplateScript.txt");
     }
 
     private void CreateFile(string pathName, string fileName, string extension, string resourceFile)
     {
         pathName = Path.ChangeExtension(pathName, extension);
         string scriptName = Path.GetFileNameWithoutExtension(pathName);
-        pathName = pathName.Replace(scriptName, fileName);
+        pathName = pathName.Replace(scriptName + "." + extension, fileName + "." + extension);
 
         resourceFile = Path.Combine(Application.dataPath, TEMPLATE_PATH + resourceFile);
         string text = File.ReadAllText(resourceFile);
