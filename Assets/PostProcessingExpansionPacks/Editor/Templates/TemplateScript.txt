@@ -3,7 +3,7 @@ using System;
 namespace UnityEngine.Rendering.PostProcessing
 {
     [Serializable]
-    [PostProcess(typeof($CUSTOMNAMERenderer), PostProcessEvent.AfterStack, "Custom/$CUSTOMNAME")]
+    [PostProcess(typeof($CUSTOMNAMERenderer), PostProcessEvent.$INJECTION, "Custom/$CUSTOMNAME")]
     public sealed class $CUSTOMNAME : PostProcessEffectSettings
     {
         

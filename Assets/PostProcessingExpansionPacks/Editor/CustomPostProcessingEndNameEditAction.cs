@@ -6,6 +6,7 @@ using System.IO;
 public class CustomPostProcessingEndNameEditAction : EndNameEditAction
 {
     private const string TEMPLATE_PATH = "PostProcessingExpansionPacks/Editor/Templates/";
+    public string injection;
 
     public override void Action(int instanceId, string pathName, string resourceFile)
     {
@@ -22,6 +23,7 @@ public class CustomPostProcessingEndNameEditAction : EndNameEditAction
 
         resourceFile = Path.Combine(Application.dataPath, TEMPLATE_PATH + resourceFile);
         string text = File.ReadAllText(resourceFile);
+        text = text.Replace("$INJECTION", injection);
         text = text.Replace("$CUSTOMNAME", scriptName);
 
         StreamWriter sr = File.CreateText(pathName);
