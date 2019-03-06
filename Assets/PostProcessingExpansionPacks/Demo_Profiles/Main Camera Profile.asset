@@ -13,36 +13,7 @@ MonoBehaviour:
   m_Name: Main Camera Profile
   m_EditorClassIdentifier: 
   settings:
-  - {fileID: 114591667984300836}
---- !u!114 &114591667984300836
-MonoBehaviour:
-  m_ObjectHideFlags: 3
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 512a43ea6c1844b9f8d262432aa5cc38, type: 3}
-  m_Name: Noise
-  m_EditorClassIdentifier: 
-  active: 1
-  enabled:
-    overrideState: 1
-    value: 1
-  noiseTexture:
-    overrideState: 1
-    value: {fileID: 2800000, guid: c84617796915b4a4b888c74643b42bf7, type: 3}
-    defaultState: 1
-  noiseSpeedX:
-    overrideState: 1
-    value: 1
-  noiseSpeedY:
-    overrideState: 1
-    value: 1
-  blend:
-    overrideState: 1
-    value: 1
+  - {fileID: 114857938922785472}
 --- !u!114 &114735445268587948
 MonoBehaviour:
   m_ObjectHideFlags: 3
@@ -81,6 +52,25 @@ MonoBehaviour:
   blend:
     overrideState: 0
     value: 0.5
+--- !u!114 &114857938922785472
+MonoBehaviour:
+  m_ObjectHideFlags: 3
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d85c27d9e47e94c5a975c3537e23dbc4, type: 3}
+  m_Name: Mosaic
+  m_EditorClassIdentifier: 
+  active: 1
+  enabled:
+    overrideState: 1
+    value: 1
+  pixelSize:
+    overrideState: 0
+    value: 0
 --- !u!114 &114873372783234034
 MonoBehaviour:
   m_ObjectHideFlags: 3
