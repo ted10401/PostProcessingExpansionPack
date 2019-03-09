@@ -20,6 +20,25 @@ MonoBehaviour:
   - {fileID: 114217988784246342}
   - {fileID: 114156925508422136}
   - {fileID: 114438715700365404}
+  - {fileID: 114462737060748170}
+  - {fileID: 114118798978705762}
+  - {fileID: 114442820236328634}
+--- !u!114 &114118798978705762
+MonoBehaviour:
+  m_ObjectHideFlags: 3
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8b0c1be24cbc14c7880588e5f41e28d8, type: 3}
+  m_Name: GradientPrewitt3x3
+  m_EditorClassIdentifier: 
+  active: 0
+  enabled:
+    overrideState: 1
+    value: 1
 --- !u!114 &114141882394977158
 MonoBehaviour:
   m_ObjectHideFlags: 3
@@ -112,7 +131,39 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fc1f0ce59a0c44baa82aaed50eae9d31, type: 3}
   m_Name: EdgeEnhance4
   m_EditorClassIdentifier: 
+  active: 0
+  enabled:
+    overrideState: 1
+    value: 1
+--- !u!114 &114442820236328634
+MonoBehaviour:
+  m_ObjectHideFlags: 3
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6943fce5f8bf447cf8c57416073a2eeb, type: 3}
+  m_Name: GradientSobel3x3
+  m_EditorClassIdentifier: 
   active: 1
+  enabled:
+    overrideState: 1
+    value: 1
+--- !u!114 &114462737060748170
+MonoBehaviour:
+  m_ObjectHideFlags: 3
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 0}
+  m_Name: GradientRoberts2x2
+  m_EditorClassIdentifier: Assembly-CSharp:UnityEngine.Rendering.PostProcessing:GradientRoberts2x2
+  active: 0
   enabled:
     overrideState: 1
     value: 1
