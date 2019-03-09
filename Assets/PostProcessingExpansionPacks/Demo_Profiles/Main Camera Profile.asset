@@ -17,7 +17,7 @@ MonoBehaviour:
   - {fileID: 114141882394977158}
   - {fileID: 114574605449549270}
   - {fileID: 114826004803306076}
-  - {fileID: 114226816558070798}
+  - {fileID: 114381994233686378}
 --- !u!114 &114141882394977158
 MonoBehaviour:
   m_ObjectHideFlags: 3
@@ -46,6 +46,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 375e53fcfec2843ed8ff886a1931659c, type: 3}
   m_Name: EdgeEnhance
   m_EditorClassIdentifier: 
+  active: 1
+  enabled:
+    overrideState: 1
+    value: 1
+--- !u!114 &114381994233686378
+MonoBehaviour:
+  m_ObjectHideFlags: 3
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 0}
+  m_Name: EdgeEnhance
+  m_EditorClassIdentifier: Assembly-CSharp:UnityEngine.Rendering.PostProcessing:EdgeEnhance
   active: 1
   enabled:
     overrideState: 1

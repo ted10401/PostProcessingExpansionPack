@@ -1,4 +1,4 @@
-Shader "Hidden/Custom/EdgeEnhance"
+Shader "Hidden/Custom/EdgeEnhance1"
 {
     SubShader
     {

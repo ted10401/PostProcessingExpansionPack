@@ -3,7 +3,7 @@ using System;
 namespace UnityEngine.Rendering.PostProcessing
 {
     [Serializable]
-    [PostProcess(typeof(EdgeEnhanceRenderer), PostProcessEvent.AfterStack, "Custom/Kernels/EdgeEnhance")]
+    [PostProcess(typeof(EdgeEnhanceRenderer), PostProcessEvent.AfterStack, "Custom/Kernels/EdgeEnhance1")]
     public sealed class EdgeEnhance : PostProcessEffectSettings
     {
         
@@ -13,7 +13,7 @@ namespace UnityEngine.Rendering.PostProcessing
     {
         public override void Render(PostProcessRenderContext context)
         {
-            var sheet = context.propertySheets.Get(Shader.Find("Hidden/Custom/EdgeEnhance"));
+            var sheet = context.propertySheets.Get(Shader.Find("Hidden/Custom/EdgeEnhance1"));
             
             
             
