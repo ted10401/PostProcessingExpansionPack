@@ -2,13 +2,13 @@
 
 public class SetupDepthTextureMode : MonoBehaviour
 {
-    [SerializeField] private DepthTextureMode m_depthTextureMode;
+    public DepthTextureMode depthTextureMode = DepthTextureMode.None;
 
     private void Awake()
     {
         if(GetComponent<Camera>() != null)
         {
-            GetComponent<Camera>().depthTextureMode = m_depthTextureMode;
+            GetComponent<Camera>().depthTextureMode = depthTextureMode;
         }
     }
 }
