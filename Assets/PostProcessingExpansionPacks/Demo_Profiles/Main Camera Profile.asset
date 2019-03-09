@@ -20,9 +20,9 @@ MonoBehaviour:
   - {fileID: 114217988784246342}
   - {fileID: 114156925508422136}
   - {fileID: 114438715700365404}
-  - {fileID: 114462737060748170}
   - {fileID: 114118798978705762}
   - {fileID: 114442820236328634}
+  - {fileID: 114640453528115656}
 --- !u!114 &114118798978705762
 MonoBehaviour:
   m_ObjectHideFlags: 3
@@ -147,7 +147,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6943fce5f8bf447cf8c57416073a2eeb, type: 3}
   m_Name: GradientSobel3x3
   m_EditorClassIdentifier: 
-  active: 1
+  active: 0
   enabled:
     overrideState: 1
     value: 1
@@ -202,6 +202,22 @@ MonoBehaviour:
   distortionStrength:
     overrideState: 1
     value: 20.03
+--- !u!114 &114640453528115656
+MonoBehaviour:
+  m_ObjectHideFlags: 3
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a749e5c9ab73e4994b249e61076ad2e8, type: 3}
+  m_Name: OilPainting
+  m_EditorClassIdentifier: 
+  active: 1
+  enabled:
+    overrideState: 1
+    value: 1
 --- !u!114 &114735445268587948
 MonoBehaviour:
   m_ObjectHideFlags: 3
