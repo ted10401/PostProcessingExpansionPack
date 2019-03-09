@@ -37,6 +37,11 @@ Shader "Hidden/Custom/EdgeEnhance2"
             
             float4 Frag(v2f i) : SV_Target
             {
+                //kernel
+                //[ 1 0 -1]
+                //[ 0 0  0]
+                //[-1 0  1]
+                
                 float4 color;
                 color = SAMPLE_TEXTURE2D(_MainTex, sampler_MainTex, i.texcoord + _MainTex_TexelSize * float2(1, 1)) * -1;
                 color += SAMPLE_TEXTURE2D(_MainTex, sampler_MainTex, i.texcoord + _MainTex_TexelSize * float2(1, -1));

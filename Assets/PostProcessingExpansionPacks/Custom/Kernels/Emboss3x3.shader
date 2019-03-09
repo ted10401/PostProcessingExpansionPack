@@ -37,6 +37,11 @@ Shader "Hidden/Custom/Emboss3x3"
             
             float4 Frag(v2f i) : SV_Target
             {
+                //kernel
+                //[-2 -1 0]
+                //[-1  1 1]
+                //[ 0  1 2]
+                
                 float4 color;
                 color = SAMPLE_TEXTURE2D(_MainTex, sampler_MainTex, i.texcoord + _MainTex_TexelSize * float2(1, 0));
                 color += SAMPLE_TEXTURE2D(_MainTex, sampler_MainTex, i.texcoord + _MainTex_TexelSize * float2(1, -1)) * 2;

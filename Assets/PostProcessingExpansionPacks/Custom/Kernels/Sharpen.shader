@@ -37,6 +37,11 @@ Shader "Hidden/Custom/Sharpen"
             
             float4 Frag(v2f i) : SV_Target
             {
+                //kernel
+                //[ 0 -1  0]
+                //[-1  5 -1]
+                //[ 0 -1  0]
+                
                 float4 color;
                 color = SAMPLE_TEXTURE2D(_MainTex, sampler_MainTex, i.texcoord + _MainTex_TexelSize * float2(1, 0)) * -1;
                 color += SAMPLE_TEXTURE2D(_MainTex, sampler_MainTex, i.texcoord + _MainTex_TexelSize * float2(0, 1)) * -1;
