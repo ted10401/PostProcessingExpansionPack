@@ -3,13 +3,13 @@ using System;
 namespace UnityEngine.Rendering.PostProcessing
 {
     [Serializable]
-    [PostProcess(typeof(EdgeEnhanceRenderer), PostProcessEvent.AfterStack, "Custom/Kernels/EdgeEnhance1")]
-    public sealed class EdgeEnhance : PostProcessEffectSettings
+    [PostProcess(typeof(EdgeEnhance1Renderer), PostProcessEvent.AfterStack, "Custom/Kernels/EdgeEnhance1")]
+    public sealed class EdgeEnhance1 : PostProcessEffectSettings
     {
         
     }
 
-    internal sealed class EdgeEnhanceRenderer : PostProcessEffectRenderer<EdgeEnhance>
+    internal sealed class EdgeEnhance1Renderer : PostProcessEffectRenderer<EdgeEnhance1>
     {
         public override void Render(PostProcessRenderContext context)
         {

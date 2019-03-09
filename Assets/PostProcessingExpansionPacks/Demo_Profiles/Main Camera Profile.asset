@@ -17,7 +17,9 @@ MonoBehaviour:
   - {fileID: 114141882394977158}
   - {fileID: 114574605449549270}
   - {fileID: 114826004803306076}
-  - {fileID: 114381994233686378}
+  - {fileID: 114217988784246342}
+  - {fileID: 114156925508422136}
+  - {fileID: 114438715700365404}
 --- !u!114 &114141882394977158
 MonoBehaviour:
   m_ObjectHideFlags: 3
@@ -29,6 +31,38 @@ MonoBehaviour:
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: f11da9376a85e432fb795a5c231897eb, type: 3}
   m_Name: GaussianBlur
+  m_EditorClassIdentifier: 
+  active: 0
+  enabled:
+    overrideState: 1
+    value: 1
+--- !u!114 &114156925508422136
+MonoBehaviour:
+  m_ObjectHideFlags: 3
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 862eeefeb39994067beff8226c895ac5, type: 3}
+  m_Name: EdgeEnhance3
+  m_EditorClassIdentifier: 
+  active: 0
+  enabled:
+    overrideState: 1
+    value: 1
+--- !u!114 &114217988784246342
+MonoBehaviour:
+  m_ObjectHideFlags: 3
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 70d9ef7708fe04d43ad7479237003ce3, type: 3}
+  m_Name: EdgeEnhance2
   m_EditorClassIdentifier: 
   active: 0
   enabled:
@@ -62,6 +96,22 @@ MonoBehaviour:
   m_Script: {fileID: 0}
   m_Name: EdgeEnhance
   m_EditorClassIdentifier: Assembly-CSharp:UnityEngine.Rendering.PostProcessing:EdgeEnhance
+  active: 1
+  enabled:
+    overrideState: 1
+    value: 1
+--- !u!114 &114438715700365404
+MonoBehaviour:
+  m_ObjectHideFlags: 3
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fc1f0ce59a0c44baa82aaed50eae9d31, type: 3}
+  m_Name: EdgeEnhance4
+  m_EditorClassIdentifier: 
   active: 1
   enabled:
     overrideState: 1
