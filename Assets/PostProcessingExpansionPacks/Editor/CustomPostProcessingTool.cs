@@ -3,7 +3,7 @@ using UnityEngine;
 
 public static class CustomPostProcessingTool
 {
-    private const string MENU_ITEM_PATH = "Assets/Create/Custom Post-processing Effect/";
+    private const string MENU_ITEM_PATH = "Assets/Create/Shader/Custom Post-processing Effect/";
 
     [MenuItem(MENU_ITEM_PATH + "Before Transparent")]
     private static void CreateBeforeTransparentEffect()

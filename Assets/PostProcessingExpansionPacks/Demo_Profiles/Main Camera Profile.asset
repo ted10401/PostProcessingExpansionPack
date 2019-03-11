@@ -26,6 +26,7 @@ MonoBehaviour:
   - {fileID: 114205978473313034}
   - {fileID: 114918820433534548}
   - {fileID: 114895122054308790}
+  - {fileID: 114553766092205318}
 --- !u!114 &114118798978705762
 MonoBehaviour:
   m_ObjectHideFlags: 3
@@ -204,6 +205,34 @@ MonoBehaviour:
   enabled:
     overrideState: 1
     value: 1
+--- !u!114 &114553766092205318
+MonoBehaviour:
+  m_ObjectHideFlags: 3
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 75f1b30f9937443ea936f4038ab4b764, type: 3}
+  m_Name: Spotlight
+  m_EditorClassIdentifier: 
+  active: 1
+  enabled:
+    overrideState: 1
+    value: 1
+  centerX:
+    overrideState: 1
+    value: 0
+  centerY:
+    overrideState: 1
+    value: 0
+  radius:
+    overrideState: 1
+    value: 0.5
+  sharpness:
+    overrideState: 1
+    value: 20
 --- !u!114 &114574605449549270
 MonoBehaviour:
   m_ObjectHideFlags: 3
@@ -387,7 +416,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7059fcab4d3b2493cbf3c02dee4b18ae, type: 3}
   m_Name: GameBoy
   m_EditorClassIdentifier: 
-  active: 1
+  active: 0
   enabled:
     overrideState: 1
     value: 1
