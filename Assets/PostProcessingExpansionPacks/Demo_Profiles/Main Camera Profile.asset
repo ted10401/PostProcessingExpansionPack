@@ -25,6 +25,7 @@ MonoBehaviour:
   - {fileID: 114640453528115656}
   - {fileID: 114205978473313034}
   - {fileID: 114918820433534548}
+  - {fileID: 114895122054308790}
 --- !u!114 &114118798978705762
 MonoBehaviour:
   m_ObjectHideFlags: 3
@@ -374,6 +375,25 @@ MonoBehaviour:
   Contrast:
     overrideState: 1
     value: 4.02
+--- !u!114 &114895122054308790
+MonoBehaviour:
+  m_ObjectHideFlags: 3
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7059fcab4d3b2493cbf3c02dee4b18ae, type: 3}
+  m_Name: GameBoy
+  m_EditorClassIdentifier: 
+  active: 1
+  enabled:
+    overrideState: 1
+    value: 1
+  pixelSize:
+    overrideState: 1
+    value: 0.0062
 --- !u!114 &114918820433534548
 MonoBehaviour:
   m_ObjectHideFlags: 3
@@ -386,7 +406,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 68320dbd6d4ec4c66ad3f6c398545377, type: 3}
   m_Name: Checkerboard
   m_EditorClassIdentifier: 
-  active: 1
+  active: 0
   enabled:
     overrideState: 1
     value: 1
