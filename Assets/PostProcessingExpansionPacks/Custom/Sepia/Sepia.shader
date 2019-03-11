@@ -1,4 +1,4 @@
-Shader "Hidden/Custom/SepiaEffect"
+Shader "Hidden/Custom/Sepia"
 {
     SubShader
     {
