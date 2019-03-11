@@ -23,6 +23,7 @@ MonoBehaviour:
   - {fileID: 114118798978705762}
   - {fileID: 114442820236328634}
   - {fileID: 114640453528115656}
+  - {fileID: 114614008031397770}
 --- !u!114 &114118798978705762
 MonoBehaviour:
   m_ObjectHideFlags: 3
@@ -183,6 +184,25 @@ MonoBehaviour:
   enabled:
     overrideState: 1
     value: 1
+--- !u!114 &114614008031397770
+MonoBehaviour:
+  m_ObjectHideFlags: 3
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 88d40838de7cf4f7c9e6829a05763b8b, type: 3}
+  m_Name: SepiaEffect
+  m_EditorClassIdentifier: 
+  active: 1
+  enabled:
+    overrideState: 1
+    value: 1
+  sepiaIntensity:
+    overrideState: 0
+    value: 1
 --- !u!114 &114635511533890134
 MonoBehaviour:
   m_ObjectHideFlags: 3
@@ -214,10 +234,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a749e5c9ab73e4994b249e61076ad2e8, type: 3}
   m_Name: OilPainting
   m_EditorClassIdentifier: 
-  active: 1
+  active: 0
   enabled:
     overrideState: 1
     value: 1
+  radius:
+    overrideState: 1
+    value: 10
 --- !u!114 &114735445268587948
 MonoBehaviour:
   m_ObjectHideFlags: 3
