@@ -3,17 +3,17 @@ using System;
 namespace UnityEngine.Rendering.PostProcessing
 {
     [Serializable]
-    [PostProcess(typeof(DepthBufferRenderer), PostProcessEvent.AfterStack, "Custom/DepthBuffer")]
-    public sealed class DepthBuffer : PostProcessEffectSettings
+    [PostProcess(typeof(ZBufferRenderer), PostProcessEvent.AfterStack, "Custom/ZBuffer")]
+    public sealed class ZBuffer : PostProcessEffectSettings
     {
         
     }
 
-    internal sealed class DepthBufferRenderer : PostProcessEffectRenderer<DepthBuffer>
+    internal sealed class ZBufferRenderer : PostProcessEffectRenderer<ZBuffer>
     {
         public override void Render(PostProcessRenderContext context)
         {
-            var sheet = context.propertySheets.Get(Shader.Find("Hidden/Custom/DepthBuffer"));
+            var sheet = context.propertySheets.Get(Shader.Find("Hidden/Custom/ZBuffer"));
             
             
             

@@ -1,4 +1,4 @@
-Shader "Hidden/Custom/DepthBuffer"
+Shader "Hidden/Custom/ZBuffer"
 {
     SubShader
     {
