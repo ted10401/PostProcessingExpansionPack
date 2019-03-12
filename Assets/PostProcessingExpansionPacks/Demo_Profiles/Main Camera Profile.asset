@@ -27,6 +27,7 @@ MonoBehaviour:
   - {fileID: 114918820433534548}
   - {fileID: 114895122054308790}
   - {fileID: 114553766092205318}
+  - {fileID: 114596887127115108}
 --- !u!114 &114118798978705762
 MonoBehaviour:
   m_ObjectHideFlags: 3
@@ -249,6 +250,46 @@ MonoBehaviour:
   enabled:
     overrideState: 1
     value: 1
+--- !u!114 &114596887127115108
+MonoBehaviour:
+  m_ObjectHideFlags: 3
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 07ae903ffa99a4aa3aa40283d6c5dff3, type: 3}
+  m_Name: CRT
+  m_EditorClassIdentifier: 
+  active: 1
+  enabled:
+    overrideState: 1
+    value: 1
+  noiseX:
+    overrideState: 0
+    value: 0
+  offset:
+    overrideState: 0
+    value: {x: 0, y: 0}
+  rgbNoise:
+    overrideState: 0
+    value: 0
+  sinNoiseWidth:
+    overrideState: 0
+    value: 0
+  sinNoiseScale:
+    overrideState: 0
+    value: 0
+  sinNoiseOffset:
+    overrideState: 0
+    value: 0
+  scanLineTail:
+    overrideState: 0
+    value: 1.5
+  scanLineSpeed:
+    overrideState: 0
+    value: 10
 --- !u!114 &114614008031397770
 MonoBehaviour:
   m_ObjectHideFlags: 3
