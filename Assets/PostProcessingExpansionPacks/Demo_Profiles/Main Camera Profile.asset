@@ -28,6 +28,23 @@ MonoBehaviour:
   - {fileID: 114895122054308790}
   - {fileID: 114553766092205318}
   - {fileID: 114596887127115108}
+  - {fileID: 114074093350036018}
+--- !u!114 &114074093350036018
+MonoBehaviour:
+  m_ObjectHideFlags: 3
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 54cf1d63da30d4aad862898f6fded669, type: 3}
+  m_Name: Pencil
+  m_EditorClassIdentifier: 
+  active: 1
+  enabled:
+    overrideState: 1
+    value: 1
 --- !u!114 &114118798978705762
 MonoBehaviour:
   m_ObjectHideFlags: 3
@@ -262,34 +279,34 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 07ae903ffa99a4aa3aa40283d6c5dff3, type: 3}
   m_Name: CRT
   m_EditorClassIdentifier: 
-  active: 1
+  active: 0
   enabled:
     overrideState: 1
     value: 1
   noiseX:
-    overrideState: 0
+    overrideState: 1
     value: 0
   offset:
-    overrideState: 0
+    overrideState: 1
     value: {x: 0, y: 0}
   rgbNoise:
-    overrideState: 0
-    value: 0
+    overrideState: 1
+    value: 0.052
   sinNoiseWidth:
-    overrideState: 0
-    value: 0
+    overrideState: 1
+    value: 5.22
   sinNoiseScale:
-    overrideState: 0
-    value: 0
+    overrideState: 1
+    value: 0.005
   sinNoiseOffset:
-    overrideState: 0
-    value: 0
+    overrideState: 1
+    value: 0.98
   scanLineTail:
-    overrideState: 0
-    value: 1.5
+    overrideState: 1
+    value: 1.96
   scanLineSpeed:
-    overrideState: 0
-    value: 10
+    overrideState: 1
+    value: 1
 --- !u!114 &114614008031397770
 MonoBehaviour:
   m_ObjectHideFlags: 3
