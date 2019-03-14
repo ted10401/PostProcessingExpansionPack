@@ -16,7 +16,7 @@ Chromatic Aberration
 ![alt tag](https://github.com/ted10401/PostProcessingExpansionPack/blob/master/GithubResources/post-processing-expansion-pack-chromatic-aberration.png)
 
 CRT
-![alt tag](https://github.com/ted10401/PostProcessingExpansionPack/blob/master/GithubResources/post-processing-expansion-pack-crt.png)
+![alt tag](https://github.com/ted10401/PostProcessingExpansionPack/blob/master/GithubResources/post-processing-expansion-pack-crt.gif)
 
 Cubic Lens Distortion
 ![alt tag](https://github.com/ted10401/PostProcessingExpansionPack/blob/master/GithubResources/post-processing-expansion-pack-cubic-lens-distortion.png)
@@ -58,7 +58,7 @@ Moasic
 ![alt tag](https://github.com/ted10401/PostProcessingExpansionPack/blob/master/GithubResources/post-processing-expansion-pack-mosaic.png)
 
 Noise
-![alt tag](https://github.com/ted10401/PostProcessingExpansionPack/blob/master/GithubResources/post-processing-expansion-pack-noise.png)
+![alt tag](https://github.com/ted10401/PostProcessingExpansionPack/blob/master/GithubResources/post-processing-expansion-pack-noise.gif)
 
 Oil Painting
 ![alt tag](https://github.com/ted10401/PostProcessingExpansionPack/blob/master/GithubResources/post-processing-expansion-pack-oil-panting.png)
