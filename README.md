@@ -2,10 +2,6 @@
 
 Original
 <p align="center">
-<img style="margin:auto;"  src="https://github.com/ted10401/ReverseMaskComponent/blob/master/GithubResources/ReverseMaskComponent-UnityChanDemo.gif">
-</p>
-
-<p align="center">
 <img style="margin:auto;"  src="https://github.com/ted10401/PostProcessingExpansionPack/blob/master/GithubResources/post-processing-expansion-pack-original.png">
 </p>
 
