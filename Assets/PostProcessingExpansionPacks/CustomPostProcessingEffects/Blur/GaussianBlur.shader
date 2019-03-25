@@ -1,4 +1,4 @@
-Shader "Hidden/Custom/GaussianBlur"
+Shader "Hidden/Custom/Blurs/GaussianBlur"
 {
     SubShader
     {

@@ -38,6 +38,7 @@ MonoBehaviour:
   - {fileID: 114446870608634340}
   - {fileID: 114708632659276592}
   - {fileID: 114622652341478512}
+  - {fileID: 114782960188123222}
 --- !u!114 &114078985022062992
 MonoBehaviour:
   m_ObjectHideFlags: 3
@@ -388,7 +389,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8e0981aaf88d2422c8dd75dba6dd8e2c, type: 3}
   m_Name: DOS
   m_EditorClassIdentifier: 
-  active: 1
+  active: 0
   enabled:
     overrideState: 1
     value: 1
@@ -473,6 +474,25 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   active: 0
   enabled:
+    overrideState: 1
+    value: 1
+--- !u!114 &114782960188123222
+MonoBehaviour:
+  m_ObjectHideFlags: 3
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d28bfb01b6ed9408880219c5f86c4154, type: 3}
+  m_Name: KawaseBlur
+  m_EditorClassIdentifier: 
+  active: 1
+  enabled:
+    overrideState: 1
+    value: 1
+  downsample:
     overrideState: 1
     value: 1
 --- !u!114 &114799132153908788

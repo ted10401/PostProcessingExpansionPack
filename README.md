@@ -15,6 +15,11 @@ Blur/GussianBlur
 <img style="margin:auto;"  src="https://github.com/ted10401/PostProcessingExpansionPack/blob/master/GithubResources/post-processing-expansion-pack-blur-gaussian.png">
 </p>
 
+Blur/KawaseBlur
+<p align="center">
+<img style="margin:auto;"  src="https://github.com/ted10401/PostProcessingExpansionPack/blob/master/GithubResources/post-processing-expansion-pack-blur-kawase.png">
+</p>
+
 Checkerboard
 <p align="center">
 <img style="margin:auto;"  src="https://github.com/ted10401/PostProcessingExpansionPack/blob/master/GithubResources/post-processing-expansion-pack-checkerboard.png">

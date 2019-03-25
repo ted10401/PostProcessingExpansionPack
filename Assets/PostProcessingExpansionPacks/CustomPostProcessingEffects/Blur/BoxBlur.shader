@@ -1,4 +1,4 @@
-Shader "Hidden/Custom/BoxBlur"
+Shader "Hidden/Custom/Blurs/BoxBlur"
 {
     SubShader
     {

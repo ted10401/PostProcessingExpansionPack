@@ -13,7 +13,7 @@ namespace UnityEngine.Rendering.PostProcessing
     {
         public override void Render(PostProcessRenderContext context)
         {
-            var sheet = context.propertySheets.Get(Shader.Find("Hidden/Custom/GaussianBlur"));
+            var sheet = context.propertySheets.Get(Shader.Find("Hidden/Custom/Blurs/GaussianBlur"));
             
             
             
