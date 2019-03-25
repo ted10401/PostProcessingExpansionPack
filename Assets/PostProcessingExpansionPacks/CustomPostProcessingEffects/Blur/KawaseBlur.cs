@@ -28,8 +28,6 @@ namespace UnityEngine.Rendering.PostProcessing
 
             var last = context.source;
 
-            context.command.Blit(last, m_downsample);
-            last = m_downsample;
             context.command.BlitFullscreenTriangle(last, m_downsample, sheet, 0);
             last = m_downsample;
             context.command.BlitFullscreenTriangle(last, m_downsample, sheet, 1);
