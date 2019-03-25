@@ -37,6 +37,7 @@ MonoBehaviour:
   - {fileID: 114706091948496252}
   - {fileID: 114446870608634340}
   - {fileID: 114708632659276592}
+  - {fileID: 114622652341478512}
 --- !u!114 &114078985022062992
 MonoBehaviour:
   m_ObjectHideFlags: 3
@@ -375,6 +376,25 @@ MonoBehaviour:
   kCube:
     overrideState: 1
     value: 0.87
+--- !u!114 &114622652341478512
+MonoBehaviour:
+  m_ObjectHideFlags: 3
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8e0981aaf88d2422c8dd75dba6dd8e2c, type: 3}
+  m_Name: DOS
+  m_EditorClassIdentifier: 
+  active: 1
+  enabled:
+    overrideState: 1
+    value: 1
+  pixelSize:
+    overrideState: 1
+    value: 0.003
 --- !u!114 &114646081114629798
 MonoBehaviour:
   m_ObjectHideFlags: 3
@@ -453,6 +473,41 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   active: 0
   enabled:
+    overrideState: 1
+    value: 1
+--- !u!114 &114799132153908788
+MonoBehaviour:
+  m_ObjectHideFlags: 3
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 977d287030e0140a895f7cdd9d6a79a8, type: 3}
+  m_Name: TargetableDepthOfField
+  m_EditorClassIdentifier: 
+  active: 1
+  enabled:
+    overrideState: 1
+    value: 1
+  target:
+    overrideState: 1
+    value: {fileID: 0}
+  textureParameter:
+    overrideState: 1
+    value: {fileID: 0}
+    defaultState: 1
+  focusDistance:
+    overrideState: 1
+    value: 10
+  aperture:
+    overrideState: 1
+    value: 2.1
+  focalLength:
+    overrideState: 1
+    value: 80
+  kernelSize:
     overrideState: 1
     value: 1
 --- !u!114 &114861420679893888
