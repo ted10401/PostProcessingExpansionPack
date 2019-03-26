@@ -7,7 +7,7 @@ Original
 
 AccumulationBuffer
 <p align="center">
-<img style="margin:auto;"  src="https://github.com/ted10401/PostProcessingExpansionPack/blob/master/GithubResources/post-processing-expansion-pack-accumulation-buffer">
+<img style="margin:auto;"  src="https://github.com/ted10401/PostProcessingExpansionPack/blob/master/GithubResources/post-processing-expansion-pack-accumulation-buffer.gif">
 </p>
 
 Blur/BoxBlur
