@@ -39,6 +39,7 @@ MonoBehaviour:
   - {fileID: 114708632659276592}
   - {fileID: 114622652341478512}
   - {fileID: 114782960188123222}
+  - {fileID: 114406100016894172}
 --- !u!114 &114078985022062992
 MonoBehaviour:
   m_ObjectHideFlags: 3
@@ -320,6 +321,22 @@ MonoBehaviour:
   pixelSize:
     overrideState: 1
     value: 0.003
+--- !u!114 &114406100016894172
+MonoBehaviour:
+  m_ObjectHideFlags: 3
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bb1e2408594b44ebc8a7437df469c46f, type: 3}
+  m_Name: AccumulationBuffer
+  m_EditorClassIdentifier: 
+  active: 1
+  enabled:
+    overrideState: 1
+    value: 1
 --- !u!114 &114408688536419550
 MonoBehaviour:
   m_ObjectHideFlags: 3
@@ -488,11 +505,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d28bfb01b6ed9408880219c5f86c4154, type: 3}
   m_Name: KawaseBlur
   m_EditorClassIdentifier: 
-  active: 1
+  active: 0
   enabled:
-    overrideState: 1
-    value: 1
-  downsample:
     overrideState: 1
     value: 1
 --- !u!114 &114799132153908788

@@ -5,6 +5,11 @@ Original
 <img style="margin:auto;"  src="https://github.com/ted10401/PostProcessingExpansionPack/blob/master/GithubResources/post-processing-expansion-pack-original.png">
 </p>
 
+AccumulationBuffer
+<p align="center">
+<img style="margin:auto;"  src="https://github.com/ted10401/PostProcessingExpansionPack/blob/master/GithubResources/post-processing-expansion-pack-accumulation-buffer">
+</p>
+
 Blur/BoxBlur
 <p align="center">
 <img style="margin:auto;"  src="https://github.com/ted10401/PostProcessingExpansionPack/blob/master/GithubResources/post-processing-expansion-pack-blur-box.png">
