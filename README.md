@@ -37,7 +37,7 @@ Chromatic Aberration
 
 CRT
 <p align="center">
-<img style="margin:auto;"  src="https://github.com/ted10401/PostProcessingExpansionPack/blob/master/GithubResources/post-processing-expansion-pack-crt.gif">
+<img style="margin:auto;"  src="https://github.com/ted10401/PostProcessingExpansionPack/blob/master/GithubResources/post-processing-expansion-pack-crt.png">
 </p>
 
 Cubic Lens Distortion
@@ -112,7 +112,7 @@ Moasic
 
 Noise
 <p align="center">
-<img style="margin:auto;"  src="https://github.com/ted10401/PostProcessingExpansionPack/blob/master/GithubResources/post-processing-expansion-pack-noise.gif">
+<img style="margin:auto;"  src="https://github.com/ted10401/PostProcessingExpansionPack/blob/master/GithubResources/post-processing-expansion-pack-noise.png">
 </p>
 
 Oil Painting

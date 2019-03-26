@@ -333,10 +333,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bb1e2408594b44ebc8a7437df469c46f, type: 3}
   m_Name: AccumulationBuffer
   m_EditorClassIdentifier: 
-  active: 1
+  active: 0
   enabled:
     overrideState: 1
     value: 1
+  alpha:
+    overrideState: 1
+    value: 0.15
 --- !u!114 &114408688536419550
 MonoBehaviour:
   m_ObjectHideFlags: 3
