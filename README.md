@@ -100,6 +100,11 @@ Kernel/Gradient Sobel 3x3
 <img style="margin:auto;"  src="https://github.com/ted10401/PostProcessingExpansionPack/blob/master/GithubResources/post-processing-expansion-pack-kernel-gradient-sobel-3x3.png">
 </p>
 
+Kernel/Motion Blur
+<p align="center">
+<img style="margin:auto;"  src="https://github.com/ted10401/PostProcessingExpansionPack/blob/master/GithubResources/post-processing-expansion-pack-kernel-motion-blur.png">
+</p>
+
 Kernel/Sharpen
 <p align="center">
 <img style="margin:auto;"  src="https://github.com/ted10401/PostProcessingExpansionPack/blob/master/GithubResources/post-processing-expansion-pack-kernel-sharpen.png">
