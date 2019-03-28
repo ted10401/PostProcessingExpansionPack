@@ -22,7 +22,6 @@ Shader "Hidden/Custom/Kernels/MotionBlur"
             float4 Frag(VaryingsDefault i) : SV_Target
             {
                 float2 uv = i.texcoord - _Center;
-                uv = normalize(uv);
                 float uvDistance = length(uv);
                 uvDistance = saturate(uvDistance - _NearClip);
                 

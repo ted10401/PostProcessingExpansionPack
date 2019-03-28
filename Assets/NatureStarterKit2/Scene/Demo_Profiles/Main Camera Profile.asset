@@ -236,13 +236,13 @@ MonoBehaviour:
     value: {x: 0.5, y: 0.5}
   nearClip:
     overrideState: 1
-    value: 0.9
+    value: 0
   distanceStrength:
     overrideState: 1
     value: {x: 1, y: 1}
   strength:
     overrideState: 1
-    value: 0.1
+    value: 0
 --- !u!114 &114235040092204958
 MonoBehaviour:
   m_ObjectHideFlags: 3

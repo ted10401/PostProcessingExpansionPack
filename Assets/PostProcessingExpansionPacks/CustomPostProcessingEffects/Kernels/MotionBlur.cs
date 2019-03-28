@@ -7,8 +7,10 @@ namespace UnityEngine.Rendering.PostProcessing
     public sealed class MotionBlur : PostProcessEffectSettings
     {
         public Vector2Parameter center = new Vector2Parameter { value = new Vector2(0.5f, 0.5f) };
+        [Range(0f, 1f)]
         public FloatParameter nearClip = new FloatParameter { value = 1.0f };
         public Vector2Parameter distanceStrength = new Vector2Parameter { value = Vector2.one };
+        [Range(0f, 1f)]
         public FloatParameter strength = new FloatParameter { value = 1 };
     }
 
