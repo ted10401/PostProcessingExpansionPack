@@ -41,7 +41,7 @@ MonoBehaviour:
   - {fileID: 114782960188123222}
   - {fileID: 114406100016894172}
   - {fileID: 114228155060528826}
-  - {fileID: 114119153398692732}
+  - {fileID: 114173029482960478}
 --- !u!114 &114078985022062992
 MonoBehaviour:
   m_ObjectHideFlags: 3
@@ -79,7 +79,11 @@ MonoBehaviour:
     value: 0.5
   fogColor:
     overrideState: 1
-    value: {r: 1, g: 1, b: 1, a: 1}
+    value:
+      r: 1
+      g: 1
+      b: 1
+      a: 1
   fogStart:
     overrideState: 1
     value: -20
@@ -152,6 +156,44 @@ MonoBehaviour:
   size:
     overrideState: 1
     value: 0.2
+--- !u!114 &114173029482960478
+MonoBehaviour:
+  m_ObjectHideFlags: 3
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 17412b2b387074fcb978cf0b66649cf9, type: 3}
+  m_Name: GlobalFog
+  m_EditorClassIdentifier: 
+  active: 1
+  enabled:
+    overrideState: 1
+    value: 1
+  fogDensity:
+    overrideState: 1
+    value: 0.5
+  fogColor:
+    overrideState: 1
+    value: {r: 1, g: 1, b: 1, a: 1}
+  fogStart:
+    overrideState: 1
+    value: -10
+  fogEnd:
+    overrideState: 1
+    value: 0
+  noiseTexture:
+    overrideState: 1
+    value: {fileID: 2800000, guid: 91214b8c0c71b4367bcac539901254b0, type: 3}
+    defaultState: 1
+  fogSpeed:
+    overrideState: 1
+    value: {x: 0.25, y: 0.1}
+  noiseAmount:
+    overrideState: 1
+    value: 0.76
 --- !u!114 &114194447905881986
 MonoBehaviour:
   m_ObjectHideFlags: 3

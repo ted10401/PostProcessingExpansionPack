@@ -1,4 +1,4 @@
-Shader "Hidden/Custom/VerticalFog"
+Shader "Hidden/Custom/GlobalFog"
 {
     SubShader
     {
@@ -29,12 +29,16 @@ Shader "Hidden/Custom/VerticalFog"
             
             TEXTURE2D_SAMPLER2D(_CameraDepthTexture, sampler_CameraDepthTexture);
             TEXTURE2D_SAMPLER2D(_MainTex, sampler_MainTex);
+            TEXTURE2D_SAMPLER2D(_NoiseTex, sampler_NoiseTex);
             
             float4x4 _FrustumCornersRay;
             float _FogDensity;
             float4 _FogColor;
             float _FogStart;
             float _FogEnd;
+            float _FogXSpeed;
+            float _FogYSpeed;
+            float _NoiseAmount;
             
             v2f Vert(a2v v)
             {
@@ -71,6 +75,11 @@ Shader "Hidden/Custom/VerticalFog"
                 return o;
             }
             
+            float2 hash(float2 n)
+            {
+                return float2(frac(sin(n.x) * 43758.5453123), frac(sin(n.y) * 43758.5453123));
+            }
+            
             float4 Frag(v2f i) : SV_Target
             {
                 float depth = SAMPLE_DEPTH_TEXTURE(_CameraDepthTexture, sampler_CameraDepthTexture, i.texcoordStereo);
@@ -78,9 +87,12 @@ Shader "Hidden/Custom/VerticalFog"
                 float linearDepth = Linear01Depth(depth);
                 
                 float3 worldPos = _WorldSpaceCameraPos + linearEyeDepth * i.interpolatedRay.xyz;
+                
+                float2 speed = float2(_FogXSpeed, _FogYSpeed) * _Time.y;
+                float noise = (SAMPLE_TEXTURE2D(_NoiseTex, sampler_NoiseTex, i.texcoord + speed).r - 0.5) * _NoiseAmount;
 
                 float fogDensity = (_FogEnd - worldPos.y) / (_FogEnd - _FogStart);
-                fogDensity = saturate(fogDensity * _FogDensity);
+                fogDensity = saturate(fogDensity * _FogDensity * (1 + noise));
 
                 fogDensity += linearDepth;
                 fogDensity = saturate(fogDensity * _FogDensity);
