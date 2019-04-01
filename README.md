@@ -60,6 +60,11 @@ Grayscale
 <img style="margin:auto;"  src="https://github.com/ted10401/PostProcessingExpansionPack/blob/master/GithubResources/post-processing-expansion-pack-grayscale.png">
 </p>
 
+Global Fog
+<p align="center">
+<img style="margin:auto;"  src="https://github.com/ted10401/PostProcessingExpansionPack/blob/master/GithubResources/post-processing-expansion-pack-global-fog.png">
+</p>
+
 HSBC
 <p align="center">
 <img style="margin:auto;"  src="https://github.com/ted10401/PostProcessingExpansionPack/blob/master/GithubResources/post-processing-expansion-pack-hsbc.png">
