@@ -12715,6 +12715,8 @@ MonoBehaviour:
       Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
   - assemblyQualifiedName: UnityEngine.Rendering.PostProcessing.MotionBlur, Assembly-CSharp,
       Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+  - assemblyQualifiedName: UnityEngine.Rendering.PostProcessing.VerticalFog, Assembly-CSharp,
+      Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
 --- !u!1001 &1126976666
 PrefabInstance:
   m_ObjectHideFlags: 0

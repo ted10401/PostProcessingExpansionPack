@@ -3,8 +3,8 @@ using System;
 namespace UnityEngine.Rendering.PostProcessing
 {
     [Serializable]
-    [PostProcess(typeof(MotionBlurRenderer), PostProcessEvent.AfterStack, "Custom/Kernels/MotionBlur")]
-    public sealed class MotionBlur : PostProcessEffectSettings
+    [PostProcess(typeof(CustomMotionBlurRenderer), PostProcessEvent.AfterStack, "Custom/Kernels/CustomMotionBlur")]
+    public sealed class CustomMotionBlur : PostProcessEffectSettings
     {
         public Vector2Parameter center = new Vector2Parameter { value = new Vector2(0.5f, 0.5f) };
         [Range(0f, 1f)]
@@ -14,13 +14,13 @@ namespace UnityEngine.Rendering.PostProcessing
         public FloatParameter strength = new FloatParameter { value = 1 };
     }
 
-    internal sealed class MotionBlurRenderer : PostProcessEffectRenderer<MotionBlur>
+    internal sealed class CustomMotionBlurRenderer : PostProcessEffectRenderer<CustomMotionBlur>
     {
         private Shader m_shader;
         
         public override void Init()
         {
-            m_shader = Shader.Find("Hidden/Custom/Kernels/MotionBlur");
+            m_shader = Shader.Find("Hidden/Custom/Kernels/CustomMotionBlur");
         }
         
         public override void Render(PostProcessRenderContext context)

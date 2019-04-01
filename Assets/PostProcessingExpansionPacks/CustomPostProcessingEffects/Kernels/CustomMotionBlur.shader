@@ -1,4 +1,4 @@
-Shader "Hidden/Custom/Kernels/MotionBlur"
+Shader "Hidden/Custom/Kernels/CustomMotionBlur"
 {
     SubShader
     {
