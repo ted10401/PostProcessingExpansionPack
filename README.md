@@ -130,6 +130,12 @@ Oil Painting
 <img style="margin:auto;"  src="https://github.com/ted10401/PostProcessingExpansionPack/blob/master/GithubResources/post-processing-expansion-pack-oil-panting.png">
 </p>
 
+Outline
+<p align="center">
+<img style="margin:auto;"  src="https://github.com/ted10401/PostProcessingExpansionPack/blob/master/GithubResources/post-processing-expansion-pack-outline-normal.png">
+<img style="margin:auto;"  src="https://github.com/ted10401/PostProcessingExpansionPack/blob/master/GithubResources/post-processing-expansion-pack-outline-depth.png">
+</p>
+
 Pencil
 <p align="center">
 <img style="margin:auto;"  src="https://github.com/ted10401/PostProcessingExpansionPack/blob/master/GithubResources/post-processing-expansion-pack-pencil.png">
