@@ -1,4 +1,4 @@
-# PostProcessingExpansionPack
+# Post-processing Expansion Pack
 The repository is the expansion pack for Unity's Post-processing Stack V2. And there is a template utility to help developers create new custom post-processing easily.
 
 ## How to Create Template
