@@ -4,10 +4,33 @@ And there is the template utility to help developers create new custom post-proc
 
 ## How to Create Template
 * Right click in the project window.
+<p align="center">
+<img style="margin:auto;"  src="https://github.com/ted10401/PostProcessingExpansionPack/blob/master/GithubResources/post-processing-expansion-pack-grayscale-how-to-create-template-step-1.png">
+</p>
 * Naming the shader you want to create.
+<p align="center">
+<img style="margin:auto;"  src="https://github.com/ted10401/PostProcessingExpansionPack/blob/master/GithubResources/post-processing-expansion-pack-grayscale-how-to-create-template-step-2.png">
+</p>
 * There are two files would be created, the shader and the C# scripts.
+<p align="center">
+<img style="margin:auto;"  src="https://github.com/ted10401/PostProcessingExpansionPack/blob/master/GithubResources/post-processing-expansion-pack-grayscale-how-to-create-template-step-3.png">
+</p>
 * Writing the shader, custom the post-processing effect which you want.
+<p align="center">
+<img style="margin:auto;"  src="https://github.com/ted10401/PostProcessingExpansionPack/blob/master/GithubResources/post-processing-expansion-pack-grayscale-how-to-create-template-step-4.png">
+</p>
 * Writing the C# scripts, add the parameter and assign the value to the shader, and custom the rendering workflow in  PostProcessEffectRenderer.Render.
+<p align="center">
+<img style="margin:auto;"  src="https://github.com/ted10401/PostProcessingExpansionPack/blob/master/GithubResources/post-processing-expansion-pack-grayscale-how-to-create-template-step-5.png">
+</p>
+* Add the effect in PostProcessingVolume
+<p align="center">
+<img style="margin:auto;"  src="https://github.com/ted10401/PostProcessingExpansionPack/blob/master/GithubResources/post-processing-expansion-pack-grayscale-how-to-create-template-step-6.png">
+</p>
+* Result
+<p align="center">
+<img style="margin:auto;"  src="https://github.com/ted10401/PostProcessingExpansionPack/blob/master/GithubResources/post-processing-expansion-pack-grayscale-how-to-create-template-step-7.png">
+</p>
 
 ## Custom Effects
 Original
@@ -78,6 +101,11 @@ Global Fog
 HSBC
 <p align="center">
 <img style="margin:auto;"  src="https://github.com/ted10401/PostProcessingExpansionPack/blob/master/GithubResources/post-processing-expansion-pack-hsbc.png">
+</p>
+
+Invert
+<p align="center">
+<img style="margin:auto;"  src="https://github.com/ted10401/PostProcessingExpansionPack/blob/master/GithubResources/post-processing-expansion-pack-invert.png">
 </p>
 
 Kernel/Edge Enhance 1
