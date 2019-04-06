@@ -1,5 +1,15 @@
 # PostProcessingExpansionPack
+The repository is the expansion package for Unity's Post-processing Stack V2.
+And there is the template utility to help developers create new custom post-processing easily.
 
+## How to Create Template
+* Right click in the project window.
+* Naming the shader you want to create.
+* There are two files would be created, the shader and the C# scripts.
+* Writing the shader, custom the post-processing effect which you want.
+* Writing the C# scripts, add the parameter and assign the value to the shader, and custom the rendering workflow in  PostProcessEffectRenderer.Render.
+
+## Custom Effects
 Original
 <p align="center">
 <img style="margin:auto;"  src="https://github.com/ted10401/PostProcessingExpansionPack/blob/master/GithubResources/post-processing-expansion-pack-original.png">
