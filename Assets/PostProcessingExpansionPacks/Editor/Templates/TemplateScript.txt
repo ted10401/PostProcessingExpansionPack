@@ -16,14 +16,13 @@ namespace UnityEngine.Rendering.PostProcessing
         public override void Init()
         {
             m_shader = Shader.Find("Hidden/Custom/$CUSTOMNAME");
+            
+            base.Init();
         }
         
         public override void Render(PostProcessRenderContext context)
         {
             var sheet = context.propertySheets.Get(m_shader);
-            
-            
-            
             context.command.BlitFullscreenTriangle(context.source, context.destination, sheet, 0);
         }
     }

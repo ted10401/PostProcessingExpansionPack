@@ -12098,7 +12098,6 @@ GameObject:
   - component: {fileID: 1125402713}
   - component: {fileID: 1125402718}
   - component: {fileID: 1125402720}
-  - component: {fileID: 1125402719}
   m_Layer: 8
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -12193,7 +12192,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1125402705}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 76b5ec6153a1d55438228df10fe66844, type: 3}
   m_Name: 
@@ -12580,23 +12579,6 @@ MonoBehaviour:
   dx11BokehTexture: {fileID: 2800000, guid: a4cdca73d61814d33ac1587f6c163bca, type: 3}
   dx11BokehScale: 1.2
   dx11BokehIntensity: 2.5
---- !u!114 &1125402719
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1125402705}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8b9a305e18de0c04dbd257a21cd47087, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  sharedProfile: {fileID: 11400000, guid: 14161b91b074847f8811238061905242, type: 2}
-  isGlobal: 1
-  blendDistance: 0
-  weight: 1
-  priority: 0
 --- !u!114 &1125402720
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -12720,6 +12702,8 @@ MonoBehaviour:
   - assemblyQualifiedName: UnityEngine.Rendering.PostProcessing.Invert, Assembly-CSharp,
       Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
   - assemblyQualifiedName: UnityEngine.Rendering.PostProcessing.Outline, Assembly-CSharp,
+      Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+  - assemblyQualifiedName: UnityEngine.Rendering.PostProcessing.Distortion, Assembly-CSharp,
       Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
 --- !u!1001 &1126976666
 PrefabInstance:

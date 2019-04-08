@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Main Camera Profile
   m_EditorClassIdentifier: 
   settings:
-  - {fileID: 114323279179776658}
+  - {fileID: 114343487653329008}
 --- !u!114 &114119153398692732
 MonoBehaviour:
   m_ObjectHideFlags: 3
@@ -62,7 +62,7 @@ MonoBehaviour:
   enabled:
     overrideState: 1
     value: 1
---- !u!114 &114323279179776658
+--- !u!114 &114343487653329008
 MonoBehaviour:
   m_ObjectHideFlags: 3
   m_CorrespondingSourceObject: {fileID: 0}
@@ -71,13 +71,22 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d9270333b2bd0453f86fc218192962d0, type: 3}
-  m_Name: Invert
+  m_Script: {fileID: 11500000, guid: 62ff041a85f8649f1acdfbe038286b62, type: 3}
+  m_Name: Distortion
   m_EditorClassIdentifier: 
   active: 1
   enabled:
     overrideState: 1
     value: 1
+  downscale:
+    overrideState: 0
+    value: 0
+  magnitude:
+    overrideState: 1
+    value: 10
+  debugView:
+    overrideState: 1
+    value: 0
 --- !u!114 &114799132153908788
 MonoBehaviour:
   m_ObjectHideFlags: 3
