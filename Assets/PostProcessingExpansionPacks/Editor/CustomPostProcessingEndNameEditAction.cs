@@ -10,14 +10,23 @@ public class CustomPostProcessingEndNameEditAction : EndNameEditAction
 
     public override void Action(int instanceId, string pathName, string resourceFile)
     {
+        string resourcesPathName = pathName.Insert(pathName.LastIndexOf('/') + 1, "Resources/");
         string scriptName = Path.GetFileNameWithoutExtension(pathName);
-        CreateFile(pathName, scriptName, "shader", "TemplateShader.txt");
+
+        CreateFile(resourcesPathName, scriptName, "shader", "TemplateShader.txt");
         CreateFile(pathName, scriptName, "cs", "TemplateScript.txt");
     }
 
     private void CreateFile(string pathName, string fileName, string extension, string resourceFile)
     {
         pathName = Path.ChangeExtension(pathName, extension);
+
+        string directoryName = pathName.Remove(pathName.LastIndexOf('/'));
+        if(!Directory.Exists(directoryName))
+        {
+            Directory.CreateDirectory(directoryName);
+        }
+
         string scriptName = Path.GetFileNameWithoutExtension(pathName);
         pathName = pathName.Replace(scriptName + "." + extension, fileName + "." + extension);
 
