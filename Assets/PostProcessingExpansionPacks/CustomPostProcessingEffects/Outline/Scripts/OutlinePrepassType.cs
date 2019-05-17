@@ -1,8 +1,11 @@
 ﻿
-public enum OutlinePrepassType
+namespace UnityEngine.Rendering.PostProcessing
 {
-    SolidColor,
-    SolidColorDepth,
-    Alpha,
-    AlphaDepth,
+    public enum OutlinePrepassType
+    {
+        SolidColor,
+        SolidColorDepth,
+        Alpha,
+        AlphaDepth,
+    }
 }

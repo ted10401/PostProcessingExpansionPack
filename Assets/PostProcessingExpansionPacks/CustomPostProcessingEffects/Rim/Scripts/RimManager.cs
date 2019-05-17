@@ -1,67 +1,90 @@
 ﻿using TEDCore;
-using UnityEngine;
 using System.Collections.Generic;
-using UnityEngine.Rendering;
 
-public class RimManager : Singleton<RimManager>
+namespace UnityEngine.Rendering.PostProcessing
 {
-    public readonly int RIM_COLOR_ID = Shader.PropertyToID("_RimColor");
-    public readonly int RIM_POWER_ID = Shader.PropertyToID("_RimPower");
-    public readonly int RIM_INTENSITY_ID = Shader.PropertyToID("_RimIntensity");
-    private readonly Shader PREPASS_SHADER = Shader.Find("Rim/Prepass");
-
-    private List<RimData> m_rimDatas = new List<RimData>();
-
-    public Shader GetPrepassShader()
+    public class RimManager : Singleton<RimManager>
     {
-        return PREPASS_SHADER;
-    }
+        public readonly int RIM_COLOR_ID = Shader.PropertyToID("_RimColor");
+        public readonly int RIM_POWER_ID = Shader.PropertyToID("_RimPower");
+        public readonly int RIM_INTENSITY_ID = Shader.PropertyToID("_RimIntensity");
 
-    public void Register(GameObject parent, Color color, float power, float intensity)
-    {
-        Register(new RimData(parent, color, power, intensity));
-    }
-
-    public void Register(RimData rimData)
-    {
-        if (rimData.renderers == null || rimData.renderers.Length == 0)
+        private readonly Dictionary<RimType, Shader> m_shaders = new Dictionary<RimType, Shader>()
         {
-            return;
+            { RimType.Normal, Shader.Find("Rim/Prepass/Normal") },
+            { RimType.Invert, Shader.Find("Rim/Prepass/Invert") },
+        };
+
+        private List<RimData> m_rimDatas = new List<RimData>();
+        private PostProcessingSettingsHandler<Rim> m_rimSettings = new PostProcessingSettingsHandler<Rim>();
+
+        public Shader GetShader(RimType rimType)
+        {
+            return m_shaders[rimType];
         }
 
-        if (m_rimDatas.Contains(rimData))
+        public void Register(RimData rimData)
         {
-            return;
-        }
-
-        m_rimDatas.Add(rimData);
-    }
-
-    public void Unregister(GameObject parent)
-    {
-        for(int i = 0, count = m_rimDatas.Count; i < count; i++)
-        {
-            if(m_rimDatas[i].parent == parent)
+            for (int i = 0, count = m_rimDatas.Count; i < count; i++)
             {
-                m_rimDatas.RemoveAt(i);
-                break;
+                if (m_rimDatas[i].parent == rimData.parent)
+                {
+                    m_rimDatas[i] = rimData;
+                    return;
+                }
+            }
+
+            if (rimData.renderers == null || rimData.renderers.Length == 0)
+            {
+                return;
+            }
+
+            m_rimDatas.Add(rimData);
+            UpdateActive();
+        }
+
+        public void Unregister(RimData rimData)
+        {
+            Unregister(rimData.parent);
+        }
+
+        public void Unregister(GameObject parent)
+        {
+            for (int i = 0, count = m_rimDatas.Count; i < count; i++)
+            {
+                if (m_rimDatas[i].parent == parent)
+                {
+                    m_rimDatas.RemoveAt(i);
+                    UpdateActive();
+                    break;
+                }
             }
         }
-    }
 
-    public void Unregister(RimData rimData)
-    {
-        m_rimDatas.Remove(rimData);
-    }
-
-    public void ExecuteCommandBuffer(CommandBuffer commandBuffer)
-    {
-        for (int i = 0, count = m_rimDatas.Count; i < count; i++)
+        public void Clear()
         {
-            for (int j = 0; j < m_rimDatas[i].renderers.Length; j++)
+            while (m_rimDatas.Count > 0)
             {
-                commandBuffer.DrawRenderer(m_rimDatas[i].renderers[j], m_rimDatas[i].prepassMaterial);
+                m_rimDatas.RemoveAt(0);
             }
+
+            UpdateActive();
+        }
+
+        public void ExecuteCommandBuffer(CommandBuffer commandBuffer)
+        {
+            for (int i = 0, count = m_rimDatas.Count; i < count; i++)
+            {
+                for (int j = 0; j < m_rimDatas[i].renderers.Length; j++)
+                {
+                    commandBuffer.DrawRenderer(m_rimDatas[i].renderers[j], m_rimDatas[i].material);
+                }
+            }
+        }
+
+        private void UpdateActive()
+        {
+            m_rimSettings.SetActive(m_rimDatas.Count > 0);
         }
     }
 }

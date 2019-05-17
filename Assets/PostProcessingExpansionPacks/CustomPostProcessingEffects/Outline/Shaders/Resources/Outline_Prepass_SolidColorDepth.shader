@@ -42,7 +42,7 @@
 			fixed4 frag(v2f i) : SV_Target
 			{
                 float sceneZ = LinearEyeDepth(SAMPLE_DEPTH_TEXTURE_PROJ(_CameraDepthTexture, UNITY_PROJ_COORD(i.projPos)));
-                float zCull = ceil(sceneZ - i.projPos.z + 0.01);
+                float zCull = ceil(sceneZ - i.projPos.z + 0.5);
             
 				return _Color * zCull;
 			}

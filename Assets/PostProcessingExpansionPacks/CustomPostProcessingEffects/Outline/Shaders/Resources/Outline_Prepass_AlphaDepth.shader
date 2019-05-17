@@ -46,7 +46,7 @@
 			fixed4 frag(v2f i) : SV_Target
 			{
                 float sceneZ = LinearEyeDepth(SAMPLE_DEPTH_TEXTURE_PROJ(_CameraDepthTexture, UNITY_PROJ_COORD(i.projPos)));
-                float zCull = ceil(sceneZ - i.projPos.z + 0.01);
+                float zCull = ceil(sceneZ - i.projPos.z + 0.2);
                 
                 float alpha = tex2D(_MainTex, i.texcoord).a;
                 alpha = floor(alpha);

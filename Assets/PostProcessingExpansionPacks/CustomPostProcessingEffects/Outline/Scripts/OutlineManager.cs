@@ -1,71 +1,93 @@
 ﻿using TEDCore;
-using UnityEngine;
 using System.Collections.Generic;
-using UnityEngine.Rendering;
 
-public class OutlineManager : Singleton<OutlineManager>
+namespace UnityEngine.Rendering.PostProcessing
 {
-    public readonly int COLOR_ID = Shader.PropertyToID("_Color");
-    private readonly Dictionary<OutlinePrepassType, Shader> m_prepassShaders = new Dictionary<OutlinePrepassType, Shader>
+    public class OutlineManager : Singleton<OutlineManager>
     {
-        { OutlinePrepassType.SolidColor, Shader.Find("Outline/Prepass/SolidColor") },
-        { OutlinePrepassType.SolidColorDepth, Shader.Find("Outline/Prepass/SolidColorDepth") },
-        { OutlinePrepassType.Alpha, Shader.Find("Outline/Prepass/Alpha") },
-        { OutlinePrepassType.AlphaDepth, Shader.Find("Outline/Prepass/AlphaDepth") },
-    };
-
-    private List<OutlineData> m_outlineDatas = new List<OutlineData>();
-
-    public Shader GetPrepassShader(OutlinePrepassType outlinePrepassType)
-    {
-        return m_prepassShaders[outlinePrepassType];
-    }
-
-    public void Register(GameObject parent, Color color, OutlinePrepassType outlinePrepassType)
-    {
-        Register(new OutlineData(parent, color, outlinePrepassType));
-    }
-
-    public void Register(OutlineData outlineData)
-    {
-        if (outlineData.renderers == null || outlineData.renderers.Length == 0)
+        public readonly int COLOR_ID = Shader.PropertyToID("_Color");
+        private readonly Dictionary<OutlinePrepassType, Shader> m_prepassShaders = new Dictionary<OutlinePrepassType, Shader>
         {
-            return;
+            { OutlinePrepassType.SolidColor, Shader.Find("Outline/Prepass/SolidColor") },
+            { OutlinePrepassType.SolidColorDepth, Shader.Find("Outline/Prepass/SolidColorDepth") },
+            { OutlinePrepassType.Alpha, Shader.Find("Outline/Prepass/Alpha") },
+            { OutlinePrepassType.AlphaDepth, Shader.Find("Outline/Prepass/AlphaDepth") },
+        };
+
+        private List<OutlineData> m_outlineDatas = new List<OutlineData>();
+        private PostProcessingSettingsHandler<Outline> m_outlineSettings = new PostProcessingSettingsHandler<Outline>();
+
+        public Shader GetPrepassShader(OutlinePrepassType outlinePrepassType)
+        {
+            return m_prepassShaders[outlinePrepassType];
         }
 
-        if (m_outlineDatas.Contains(outlineData))
+        public void Register(GameObject parent, Color color, OutlinePrepassType outlinePrepassType)
         {
-            return;
+            Register(new OutlineData(parent, color, outlinePrepassType));
         }
 
-        m_outlineDatas.Add(outlineData);
-    }
-
-    public void Unregister(GameObject parent)
-    {
-        for(int i = 0, count = m_outlineDatas.Count; i < count; i++)
+        public void Register(OutlineData outlineData)
         {
-            if(m_outlineDatas[i].parent == parent)
+            if (outlineData.renderers == null || outlineData.renderers.Length == 0)
             {
-                m_outlineDatas.RemoveAt(i);
-                break;
+                return;
+            }
+
+            for (int i = 0, count = m_outlineDatas.Count; i < count; i++)
+            {
+                if (m_outlineDatas[i].parent == outlineData.parent)
+                {
+                    return;
+                }
+            }
+            
+            m_outlineDatas.Add(outlineData);
+            UpdateActive();
+        }
+
+        public void Unregister(OutlineData outlineData)
+        {
+            Unregister(outlineData.parent);
+        }
+
+        public void Unregister(GameObject parent)
+        {
+            for (int i = 0, count = m_outlineDatas.Count; i < count; i++)
+            {
+                if (m_outlineDatas[i].parent == parent)
+                {
+                    m_outlineDatas.RemoveAt(i);
+                    UpdateActive();
+                    break;
+                }
             }
         }
-    }
 
-    public void Unregister(OutlineData outlineData)
-    {
-        m_outlineDatas.Remove(outlineData);
-    }
-
-    public void ExecuteCommandBuffer(CommandBuffer commandBuffer)
-    {
-        for (int i = 0, count = m_outlineDatas.Count; i < count; i++)
+        public void Clear()
         {
-            for (int j = 0; j < m_outlineDatas[i].renderers.Length; j++)
+            while(m_outlineDatas.Count > 0)
             {
-                commandBuffer.DrawRenderer(m_outlineDatas[i].renderers[j], m_outlineDatas[i].prepassMaterial);
+                m_outlineDatas.RemoveAt(0);
             }
+
+            UpdateActive();
+        }
+
+        public void ExecuteCommandBuffer(CommandBuffer commandBuffer)
+        {
+            for (int i = 0, count = m_outlineDatas.Count; i < count; i++)
+            {
+                for (int j = 0; j < m_outlineDatas[i].renderers.Length; j++)
+                {
+                    commandBuffer.DrawRenderer(m_outlineDatas[i].renderers[j], m_outlineDatas[i].prepassMaterial);
+                }
+            }
+        }
+
+        private void UpdateActive()
+        {
+            m_outlineSettings.SetActive(m_outlineDatas.Count > 0);
         }
     }
 }

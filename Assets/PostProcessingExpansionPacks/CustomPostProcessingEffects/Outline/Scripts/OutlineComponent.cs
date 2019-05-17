@@ -1,34 +1,36 @@
-﻿using UnityEngine;
-
-public class OutlineComponent : MonoBehaviour
+﻿
+namespace UnityEngine.Rendering.PostProcessing
 {
-    [SerializeField] private Color m_color = Color.white;
-    [SerializeField] private OutlinePrepassType m_outlinePrepassType = OutlinePrepassType.SolidColor;
-    private OutlineData m_outlineData;
-
-    private void Awake()
+    public class OutlineComponent : MonoBehaviour
     {
-        m_outlineData = new OutlineData(gameObject, m_color, m_outlinePrepassType);
-    }
+        [SerializeField] private Color m_color = Color.white;
+        [SerializeField] private OutlinePrepassType m_outlinePrepassType = OutlinePrepassType.SolidColor;
+        private OutlineData m_outlineData;
 
-    private void OnValidate()
-    {
-        if(m_outlineData == null)
+        private void Awake()
         {
             m_outlineData = new OutlineData(gameObject, m_color, m_outlinePrepassType);
         }
 
-        m_outlineData.SetColor(m_color);
-        m_outlineData.SetPrepassType(m_outlinePrepassType);
-    }
+        private void OnValidate()
+        {
+            if (m_outlineData == null)
+            {
+                m_outlineData = new OutlineData(gameObject, m_color, m_outlinePrepassType);
+            }
 
-    private void OnEnable()
-    {
-        OutlineManager.Instance.Register(m_outlineData);
-    }
+            m_outlineData.SetColor(m_color);
+            m_outlineData.SetPrepassType(m_outlinePrepassType);
+        }
 
-    private void OnDisable()
-    {
-        OutlineManager.Instance.Unregister(m_outlineData);
+        private void OnEnable()
+        {
+            OutlineManager.Instance.Register(m_outlineData);
+        }
+
+        private void OnDisable()
+        {
+            OutlineManager.Instance.Unregister(m_outlineData);
+        }
     }
 }

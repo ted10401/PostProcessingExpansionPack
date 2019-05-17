@@ -53,6 +53,7 @@ namespace UnityEngine.Rendering.PostProcessing
 
             context.command.SetGlobalTexture(m_rimTexID, m_rimRT);
             context.command.BlitFullscreenTriangle(context.source, context.destination, sheet, 0);
+            context.command.ReleaseTemporaryRT(m_rimRT);
         }
     }
 }

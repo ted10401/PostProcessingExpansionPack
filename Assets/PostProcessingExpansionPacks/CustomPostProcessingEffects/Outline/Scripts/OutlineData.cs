@@ -1,67 +1,69 @@
-﻿using UnityEngine;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 
-public class OutlineData
+namespace UnityEngine.Rendering.PostProcessing
 {
-    public GameObject parent;
-    public Renderer[] renderers;
-    public Color color;
-    public OutlinePrepassType outlinePrepassType;
-    public Material prepassMaterial { get; private set; }
-
-    private Color m_lastColor;
-    private OutlinePrepassType m_lastOutlinePrepassType;
-
-    public OutlineData(GameObject parent, Color color, OutlinePrepassType outlinePrepassType)
+    public class OutlineData
     {
-        this.parent = parent;
+        public GameObject parent;
+        public Renderer[] renderers;
+        public Color color;
+        public OutlinePrepassType outlinePrepassType;
+        public Material prepassMaterial { get; private set; }
 
-        List<Renderer> cacheRenderers = new List<Renderer>();
-        cacheRenderers.AddRange(parent.GetComponentsInChildren<SkinnedMeshRenderer>());
-        cacheRenderers.AddRange(parent.GetComponentsInChildren<MeshRenderer>());
-        cacheRenderers.AddRange(parent.GetComponentsInChildren<SpriteRenderer>());
-        renderers = cacheRenderers.ToArray();
+        private Color m_lastColor;
+        private OutlinePrepassType m_lastOutlinePrepassType;
 
-        this.color = color;
-        this.outlinePrepassType = outlinePrepassType;
-
-        UpdatePrepassMaterial();
-    }
-
-    public void SetColor(Color color)
-    {
-        this.color = color;
-        UpdatePrepassMaterial();
-    }
-
-    public void SetPrepassType(OutlinePrepassType outlinePrepassType)
-    {
-        this.outlinePrepassType = outlinePrepassType;
-        UpdatePrepassMaterial();
-    }
-
-    private void UpdatePrepassMaterial()
-    {
-        if (prepassMaterial == null || m_lastOutlinePrepassType != outlinePrepassType)
+        public OutlineData(GameObject parent, Color color, OutlinePrepassType outlinePrepassType)
         {
-            m_lastOutlinePrepassType = outlinePrepassType;
+            this.parent = parent;
 
-            if(prepassMaterial == null)
-            {
-                prepassMaterial = new Material(OutlineManager.Instance.GetPrepassShader(m_lastOutlinePrepassType));
-            }
-            else
-            {
-                prepassMaterial.shader = OutlineManager.Instance.GetPrepassShader(m_lastOutlinePrepassType);
-            }
+            List<Renderer> cacheRenderers = new List<Renderer>();
+            cacheRenderers.AddRange(parent.GetComponentsInChildren<SkinnedMeshRenderer>());
+            cacheRenderers.AddRange(parent.GetComponentsInChildren<MeshRenderer>());
+            cacheRenderers.AddRange(parent.GetComponentsInChildren<SpriteRenderer>());
+            renderers = cacheRenderers.ToArray();
 
-            m_lastColor = color;
-            prepassMaterial.SetColor(OutlineManager.Instance.COLOR_ID, m_lastColor);
+            this.color = color;
+            this.outlinePrepassType = outlinePrepassType;
+
+            UpdatePrepassMaterial();
         }
-        else if(m_lastColor != color)
+
+        public void SetColor(Color color)
         {
-            m_lastColor = color;
-            prepassMaterial.SetColor(OutlineManager.Instance.COLOR_ID, m_lastColor);
+            this.color = color;
+            UpdatePrepassMaterial();
+        }
+
+        public void SetPrepassType(OutlinePrepassType outlinePrepassType)
+        {
+            this.outlinePrepassType = outlinePrepassType;
+            UpdatePrepassMaterial();
+        }
+
+        private void UpdatePrepassMaterial()
+        {
+            if (prepassMaterial == null || m_lastOutlinePrepassType != outlinePrepassType)
+            {
+                m_lastOutlinePrepassType = outlinePrepassType;
+
+                if (prepassMaterial == null)
+                {
+                    prepassMaterial = new Material(OutlineManager.Instance.GetPrepassShader(m_lastOutlinePrepassType));
+                }
+                else
+                {
+                    prepassMaterial.shader = OutlineManager.Instance.GetPrepassShader(m_lastOutlinePrepassType);
+                }
+
+                m_lastColor = color;
+                prepassMaterial.SetColor(OutlineManager.Instance.COLOR_ID, m_lastColor);
+            }
+            else if (m_lastColor != color)
+            {
+                m_lastColor = color;
+                prepassMaterial.SetColor(OutlineManager.Instance.COLOR_ID, m_lastColor);
+            }
         }
     }
 }
