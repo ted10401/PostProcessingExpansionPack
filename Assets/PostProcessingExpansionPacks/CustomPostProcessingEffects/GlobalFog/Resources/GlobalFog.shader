@@ -31,11 +31,16 @@ Shader "Hidden/Custom/GlobalFog"
             TEXTURE2D_SAMPLER2D(_MainTex, sampler_MainTex);
             TEXTURE2D_SAMPLER2D(_NoiseTex, sampler_NoiseTex);
             
+			float _Weight;
             float4x4 _FrustumCornersRay;
-            float _FogDensity;
-            float4 _FogColor;
-            float _FogStart;
-            float _FogEnd;
+            float4 _FogDepthColor;
+			float _FogDepthStrength;
+			float _FogDepthPower;
+			float _FogDepthDensity;
+			float4 _FogHeightColor;
+			float _FogHeightStart;
+            float _FogHeightRange;
+			float _FogHeightDensity;
             float _FogXSpeed;
             float _FogYSpeed;
             float _NoiseAmount;
@@ -51,56 +56,40 @@ Shader "Hidden/Custom/GlobalFog"
             #endif
             
                 o.texcoordStereo = TransformStereoScreenSpaceTex(o.texcoord, 1.0);
-            
-                int index = 0;
-                if(v.texcoord.x < 0.5 && v.texcoord.y < 0.5)
-                {
-                    index = 0;
-                }
-                else if(v.texcoord.x > 0.5 && v.texcoord.y < 0.5)
-                {
-                    index = 1;
-                }
-                else if(v.texcoord.x > 0.5 && v.texcoord.y > 0.5)
-                {
-                    index = 2;
-                }
-                else
-                {
-                    index = 3;
-                }
 
-                o.interpolatedRay = _FrustumCornersRay[index];
+				int x = (int)v.texcoord.x;
+				int y = (int)v.texcoord.y;
+                o.interpolatedRay = _FrustumCornersRay[x + 2 * y];
 
                 return o;
-            }
-            
-            float2 hash(float2 n)
-            {
-                return float2(frac(sin(n.x) * 43758.5453123), frac(sin(n.y) * 43758.5453123));
             }
             
             float4 Frag(v2f i) : SV_Target
             {
                 float depth = SAMPLE_DEPTH_TEXTURE(_CameraDepthTexture, sampler_CameraDepthTexture, i.texcoordStereo);
                 float linearEyeDepth = LinearEyeDepth(depth);
-                float linearDepth = Linear01Depth(depth);
-                
-                float3 worldPos = _WorldSpaceCameraPos + linearEyeDepth * i.interpolatedRay.xyz;
+                float linear01Depth = Linear01Depth(depth);
+				float3 worldPos = _WorldSpaceCameraPos + linearEyeDepth * i.interpolatedRay.xyz;
                 
                 float2 speed = float2(_FogXSpeed, _FogYSpeed) * _Time.y;
-                float noise = (SAMPLE_TEXTURE2D(_NoiseTex, sampler_NoiseTex, i.texcoord + speed).r - 0.5) * _NoiseAmount;
+				float2 uv = i.texcoord + speed;
+                float noise = (SAMPLE_TEXTURE2D(_NoiseTex, sampler_NoiseTex, uv).r - 0.5) * _NoiseAmount;
 
-                float fogDensity = (_FogEnd - worldPos.y) / (_FogEnd - _FogStart);
-                fogDensity = saturate(fogDensity * _FogDensity * (1 + noise));
+				float fogDepthDensity = pow(linear01Depth * _FogDepthStrength, _FogDepthPower);
+				fogDepthDensity *= (1 + noise) * _FogDepthDensity;
+                fogDepthDensity = saturate(fogDepthDensity);
+				fogDepthDensity *= _Weight;
 
-                fogDensity += linearDepth;
-                fogDensity = saturate(fogDensity * _FogDensity);
+				float fogHeightDensity = (_FogHeightStart + _FogHeightRange - worldPos.y) / _FogHeightRange;
+				fogHeightDensity *= (1 + noise) * _FogHeightDensity;
+				fogHeightDensity = saturate(fogHeightDensity);
+				fogHeightDensity *= _Weight;
  
                 float4 color = SAMPLE_TEXTURE2D(_MainTex, sampler_MainTex, i.texcoord);
-                color.rgb = lerp(color.rgb, _FogColor.rgb, fogDensity);
+				float4 fogColor = lerp(color, _FogDepthColor, fogDepthDensity);
+				fogColor = lerp(fogColor, _FogHeightColor, fogHeightDensity);
             
-                return color;
+                return lerp(color, fogColor, _Weight);
             }
             ENDHLSL
         }

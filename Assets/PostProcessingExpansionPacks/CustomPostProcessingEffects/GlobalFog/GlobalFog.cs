@@ -6,13 +6,17 @@ namespace UnityEngine.Rendering.PostProcessing
     [PostProcess(typeof(GlobalFogRenderer), PostProcessEvent.AfterStack, "Custom/GlobalFog")]
     public sealed class GlobalFog : PostProcessEffectSettings
     {
-        [Range(0f, 1f)]
-        public FloatParameter fogDensity = new FloatParameter { value = 0.5f };
-        public ColorParameter fogColor = new ColorParameter { value = Color.white };
-        public FloatParameter fogStart = new FloatParameter { value = -10f };
-        public FloatParameter fogEnd = new FloatParameter { value = 0f };
+        [Range(0f, 1f)] public FloatParameter weight = new FloatParameter { value = 1, overrideState = true };
+        public ColorParameter fogDepthColor = new ColorParameter { value = Color.white };
+        [Range(0f, 1f)] public FloatParameter fogDepthDensity = new FloatParameter { value = 0.5f };
+        public FloatParameter fogDepthStrength = new FloatParameter { value = 1f };
+        public FloatParameter fogDepthPower = new FloatParameter { value = 1 };
+        public ColorParameter fogHeightColor = new ColorParameter { value = Color.white };
+        public FloatParameter fogHeightStart = new FloatParameter { value = 0f };
+        public FloatParameter fogHeightRange = new FloatParameter { value = 10f };
+        [Range(0f, 1f)] public FloatParameter fogHeightDensity = new FloatParameter { value = 1f };
         public TextureParameter noiseTexture = new TextureParameter { value = null };
-        public Vector2Parameter fogSpeed = new Vector2Parameter { value = Vector2.one };
+        public Vector2Parameter fogSpeed = new Vector2Parameter { value = Vector2.one * 0.1f };
         [Range(0f, 1f)]
         public FloatParameter noiseAmount = new FloatParameter { value = 0.5f };
     }
@@ -20,11 +24,16 @@ namespace UnityEngine.Rendering.PostProcessing
     internal sealed class GlobalFogRenderer : PostProcessEffectRenderer<GlobalFog>
     {
         private Shader m_shader;
+        private int m_weightID;
         private int m_frustumCornersID;
-        private int m_fogDensityID;
-        private int m_fogColorID;
-        private int m_fogStartID;
-        private int m_fogEndID;
+        private int m_fogDepthColorID;
+        private int m_fogDepthDensityID;
+        private int m_fogDepthStrengthID;
+        private int m_fogDepthPowerID;
+        private int m_fogHeightColorID;
+        private int m_fogHeightStartID;
+        private int m_fogHeightRangeID;
+        private int m_fogHeightDensityID;
         private int m_noiseTexID;
         private int m_fogSpeedXID;
         private int m_fogSpeedYID;
@@ -33,11 +42,16 @@ namespace UnityEngine.Rendering.PostProcessing
         public override void Init()
         {
             m_shader = Shader.Find("Hidden/Custom/GlobalFog");
+            m_weightID = Shader.PropertyToID("_Weight");
             m_frustumCornersID = Shader.PropertyToID("_FrustumCornersRay");
-            m_fogDensityID = Shader.PropertyToID("_FogDensity");
-            m_fogColorID = Shader.PropertyToID("_FogColor");
-            m_fogStartID = Shader.PropertyToID("_FogStart");
-            m_fogEndID = Shader.PropertyToID("_FogEnd");
+            m_fogDepthColorID = Shader.PropertyToID("_FogDepthColor");
+            m_fogDepthDensityID = Shader.PropertyToID("_FogDepthDensity");
+            m_fogDepthStrengthID = Shader.PropertyToID("_FogDepthStrength");
+            m_fogDepthPowerID = Shader.PropertyToID("_FogDepthPower");
+            m_fogHeightColorID = Shader.PropertyToID("_FogHeightColor");
+            m_fogHeightStartID = Shader.PropertyToID("_FogHeightStart");
+            m_fogHeightRangeID = Shader.PropertyToID("_FogHeightRange");
+            m_fogHeightDensityID = Shader.PropertyToID("_FogHeightDensity");
             m_noiseTexID = Shader.PropertyToID("_NoiseTex");
             m_fogSpeedXID = Shader.PropertyToID("_FogXSpeed");
             m_fogSpeedYID = Shader.PropertyToID("_FogYSpeed");
@@ -46,6 +60,12 @@ namespace UnityEngine.Rendering.PostProcessing
         
         public override void Render(PostProcessRenderContext context)
         {
+            if(settings.weight == 0)
+            {
+                context.command.BlitFullscreenTriangle(context.source, context.destination);
+                return;
+            }
+
             var sheet = context.propertySheets.Get(m_shader);
 
             float fov = context.camera.fieldOfView;
@@ -79,11 +99,16 @@ namespace UnityEngine.Rendering.PostProcessing
             frustumCorners.SetRow(2, topRight);
             frustumCorners.SetRow(3, topLeft);
 
+            sheet.properties.SetFloat(m_weightID, settings.weight);
             sheet.properties.SetMatrix(m_frustumCornersID, frustumCorners);
-            sheet.properties.SetFloat(m_fogDensityID, settings.fogDensity);
-            sheet.properties.SetColor(m_fogColorID, settings.fogColor);
-            sheet.properties.SetFloat(m_fogStartID, settings.fogStart);
-            sheet.properties.SetFloat(m_fogEndID, settings.fogEnd);
+            sheet.properties.SetColor(m_fogDepthColorID, settings.fogDepthColor);
+            sheet.properties.SetFloat(m_fogDepthDensityID, settings.fogDepthDensity);
+            sheet.properties.SetFloat(m_fogDepthStrengthID, settings.fogDepthStrength);
+            sheet.properties.SetFloat(m_fogDepthPowerID, settings.fogDepthPower);
+            sheet.properties.SetColor(m_fogHeightColorID, settings.fogHeightColor);
+            sheet.properties.SetFloat(m_fogHeightStartID, settings.fogHeightStart);
+            sheet.properties.SetFloat(m_fogHeightRangeID, settings.fogHeightRange);
+            sheet.properties.SetFloat(m_fogHeightDensityID, settings.fogHeightDensity);
             if(settings.noiseTexture.value != null)
             {
                 sheet.properties.SetTexture(m_noiseTexID, settings.noiseTexture.value);
