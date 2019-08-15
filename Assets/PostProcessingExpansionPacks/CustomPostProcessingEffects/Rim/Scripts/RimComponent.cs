@@ -5,8 +5,8 @@ namespace UnityEngine.Rendering.PostProcessing
     {
         [SerializeField] private RimType m_rimType = RimType.Normal;
         [SerializeField] private Color m_color = Color.white;
-        [SerializeField] private float m_power = 5;
-        [SerializeField] private float m_intensity = 2;
+        [SerializeField] private float m_power = 2f;
+        [SerializeField] private float m_intensity = 1.5f;
         private RimData m_rimData;
 
         private void Awake()

@@ -5,7 +5,7 @@ namespace UnityEngine.Rendering.PostProcessing
     public class RimData
     {
         private const float DEFAULT_POWER = 2f;
-        private const float DEFAULT_INTENSITY = 1f;
+        private const float DEFAULT_INTENSITY = 1.5f;
 
         public GameObject parent;
         public Renderer[] renderers;
@@ -30,6 +30,20 @@ namespace UnityEngine.Rendering.PostProcessing
             cacheRenderers.AddRange(parent.GetComponentsInChildren<SpriteRenderer>());
             renderers = cacheRenderers.ToArray();
 
+            this.rimType = rimType;
+            this.color = color;
+            this.power = power;
+            this.intensity = intensity;
+
+            UpdateMaterial();
+        }
+
+        public RimData(GameObject parent, Material material, Renderer[] renderers, RimType rimType, Color color, float power = DEFAULT_POWER, float intensity = DEFAULT_INTENSITY)
+        {
+            this.parent = parent;
+            this.material = GameObject.Instantiate(material);
+            this.m_lastRimType = rimType;
+            this.renderers = renderers;
             this.rimType = rimType;
             this.color = color;
             this.power = power;
