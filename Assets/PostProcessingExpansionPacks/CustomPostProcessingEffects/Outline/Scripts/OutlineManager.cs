@@ -10,8 +10,10 @@ namespace UnityEngine.Rendering.PostProcessing
         {
             { OutlinePrepassType.SolidColor, Shader.Find("Outline/Prepass/SolidColor") },
             { OutlinePrepassType.SolidColorDepth, Shader.Find("Outline/Prepass/SolidColorDepth") },
+            { OutlinePrepassType.SolidColorDepthInvert, Shader.Find("Outline/Prepass/SolidColorDepthInvert") },
             { OutlinePrepassType.Alpha, Shader.Find("Outline/Prepass/Alpha") },
             { OutlinePrepassType.AlphaDepth, Shader.Find("Outline/Prepass/AlphaDepth") },
+            { OutlinePrepassType.AlphaDepthInvert, Shader.Find("Outline/Prepass/AlphaDepthInvert") },
         };
 
         private List<OutlineData> m_outlineDatas = new List<OutlineData>();
@@ -38,7 +40,8 @@ namespace UnityEngine.Rendering.PostProcessing
             {
                 if (m_outlineDatas[i].parent == outlineData.parent)
                 {
-                    return;
+                    m_outlineDatas[i] = outlineData;
+                    break;
                 }
             }
             

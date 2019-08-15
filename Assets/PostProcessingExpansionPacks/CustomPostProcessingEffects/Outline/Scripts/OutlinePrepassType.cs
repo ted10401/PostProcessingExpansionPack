@@ -5,7 +5,9 @@ namespace UnityEngine.Rendering.PostProcessing
     {
         SolidColor,
         SolidColorDepth,
+        SolidColorDepthInvert,
         Alpha,
         AlphaDepth,
+        AlphaDepthInvert,
     }
 }

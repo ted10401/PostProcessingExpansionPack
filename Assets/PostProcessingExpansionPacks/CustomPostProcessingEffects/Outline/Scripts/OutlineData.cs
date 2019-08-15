@@ -18,7 +18,18 @@ namespace UnityEngine.Rendering.PostProcessing
             this.parent = parent;
 
             List<Renderer> cacheRenderers = new List<Renderer>();
-            cacheRenderers.AddRange(parent.GetComponentsInChildren<SkinnedMeshRenderer>());
+
+            LODGroup lODGroup = parent.GetComponent<LODGroup>();
+            if(lODGroup != null)
+            {
+                LOD[] lODs = lODGroup.GetLODs();
+                cacheRenderers.AddRange(lODs[0].renderers);
+            }
+            else
+            {
+                cacheRenderers.AddRange(parent.GetComponentsInChildren<SkinnedMeshRenderer>());
+            }
+            
             cacheRenderers.AddRange(parent.GetComponentsInChildren<MeshRenderer>());
             cacheRenderers.AddRange(parent.GetComponentsInChildren<SpriteRenderer>());
             renderers = cacheRenderers.ToArray();
