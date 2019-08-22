@@ -66,10 +66,10 @@ Shader "Hidden/Custom/WindowRaindrops2"
             float4 _MainTex_TexelSize;
 			float _Size;
 			float _Speed;
+            float _LightningSpeed;
 			float _Distortion;
 			TEXTURE2D_SAMPLER2D(_BlurTex, sampler_BlurTex);
             float4 _BlurTex_TexelSize;
-			float4 _BlurColor;
 			float _Blur;
             float _TrailBlur;
             
@@ -206,7 +206,18 @@ Shader "Hidden/Custom/WindowRaindrops2"
                 float focus = lerp(_Blur * rainAmount - c.y, _TrailBlur, S(.1, .2, c.x));
                 float4 color = SAMPLE_TEXTURE2D(_MainTex, sampler_MainTex, UV+n * _Distortion);
                 float4 blurColor = SAMPLE_TEXTURE2D(_BlurTex, sampler_BlurTex, i.texcoord);
-                return lerp(color, blurColor * _BlurColor, focus);
+                float3 col = lerp(color, blurColor, focus).rgb;
+                
+                t = (T * _LightningSpeed+3.)*.5;
+                float colFade = sin(t * .2) * .5 + .5;
+                col *= float3(.8, .9, 1.3);
+                float fade = S(0., 10., T);                         // fade in at the start
+                float lightning = sin(t*sin(t*10.));                // lighting flicker
+                lightning *= pow(max(0., sin(t+sin(t))), 10.);      // lightning flash
+                col *= 1.+lightning*fade;  // composite lightning
+                col *= 1.-dot(UV-=.5, UV);
+                
+                return float4(col, 1);
             }
             ENDHLSL
         }

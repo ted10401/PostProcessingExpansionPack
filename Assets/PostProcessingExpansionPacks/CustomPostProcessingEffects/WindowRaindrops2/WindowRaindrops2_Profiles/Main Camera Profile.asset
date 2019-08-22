@@ -31,17 +31,20 @@ MonoBehaviour:
     overrideState: 1
     value: 1
   size:
-    overrideState: 0
-    value: 1
+    overrideState: 1
+    value: 0.5
   speed:
-    overrideState: 0
+    overrideState: 1
     value: 1
+  lightningSpeed:
+    overrideState: 1
+    value: 2
   distortion:
-    overrideState: 0
-    value: 1
+    overrideState: 1
+    value: 2
   blur:
-    overrideState: 0
-    value: 1
-  blurColor:
-    overrideState: 0
-    value: {r: 1, g: 1, b: 1, a: 1}
+    overrideState: 1
+    value: 0.836
+  trailBlur:
+    overrideState: 1
+    value: 0
