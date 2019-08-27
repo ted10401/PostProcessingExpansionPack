@@ -11,11 +11,12 @@ namespace UnityEngine.Rendering.PostProcessing
 
     internal sealed class $CUSTOMNAMERenderer : PostProcessEffectRenderer<$CUSTOMNAME>
     {
+		private const string SHADER_NAME = "Hidden/Custom/$CUSTOMNAME";
         private Shader m_shader;
         
         public override void Init()
         {
-            m_shader = Shader.Find("Hidden/Custom/$CUSTOMNAME");
+            m_shader = Shader.Find(SHADER_NAME);
             
             base.Init();
         }
