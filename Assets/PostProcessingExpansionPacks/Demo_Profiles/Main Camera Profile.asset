@@ -30,6 +30,7 @@ MonoBehaviour:
   - {fileID: 114596887127115108}
   - {fileID: 114074093350036018}
   - {fileID: 114714137887333504}
+  - {fileID: 114747140831103974}
 --- !u!114 &114074093350036018
 MonoBehaviour:
   m_ObjectHideFlags: 3
@@ -377,7 +378,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dcdd23422bc66a84fbef6207892d6e43, type: 3}
   m_Name: Glitch_RGBSplit
   m_EditorClassIdentifier: 
-  active: 1
+  active: 0
   enabled:
     overrideState: 1
     value: 1
@@ -410,6 +411,28 @@ MonoBehaviour:
   blend:
     overrideState: 1
     value: 1
+--- !u!114 &114747140831103974
+MonoBehaviour:
+  m_ObjectHideFlags: 3
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 826b58008027b744b8b57ea887c29550, type: 3}
+  m_Name: Glitch_ImageBlock
+  m_EditorClassIdentifier: 
+  active: 1
+  enabled:
+    overrideState: 1
+    value: 1
+  Speed:
+    overrideState: 1
+    value: 50
+  BlockSize:
+    overrideState: 1
+    value: 50
 --- !u!114 &114754097116898698
 MonoBehaviour:
   m_ObjectHideFlags: 3
